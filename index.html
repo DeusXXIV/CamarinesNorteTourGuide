@@ -1,84 +1,76 @@
+<!-- index.html -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Virtual Brochure: Camarines Norte</title>
-  <!-- Poppins Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <!-- Custom Styles -->
+  <script src="https://unpkg.com/scrollreveal"></script>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="font-poppins overflow-x-hidden">
-
-  <!-- Navbar -->
-  <nav class="sticky top-0 z-30 shadow-md backdrop-blur-sm">
+<body>
+  <nav class="sticky top-0 bg-alt/90 backdrop-blur-md shadow-md">
     <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-      <span class="text-2xl font-extrabold">Camarines Norte</span>
-      <div class="hidden md:flex space-x-6">
+      <span class="text-2xl font-extrabold text-primary">Camarines Norte</span>
+      <div class="hidden md:flex items-center space-x-6">
         <a href="#hero" class="nav-link">Home</a>
         <a href="#towns" class="nav-link">Towns</a>
         <a href="#about" class="nav-link">About</a>
+        <button id="theme-toggle" aria-label="Toggle theme" class="text-lg text-primary">🌙</button>
       </div>
-      <button id="menu-btn" class="md:hidden focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+      <div class="md:hidden flex items-center space-x-4">
+        <button id="theme-toggle-mobile" aria-label="Toggle theme" class="text-lg text-primary">🌙</button>
+        <button id="menu-btn" aria-label="Toggle navigation" class="text-primary">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
     </div>
   </nav>
-
-  <!-- Mobile Nav -->
-  <div id="mobile-nav" class="hidden shadow-lg">
+  <div id="mobile-nav" class="hidden bg-alt/90 shadow-lg">
     <a href="#hero" class="block px-6 py-3 border-b nav-link">Home</a>
     <a href="#towns" class="block px-6 py-3 border-b nav-link">Towns</a>
     <a href="#about" class="block px-6 py-3 nav-link">About</a>
   </div>
-
-  <!-- Hero Section -->
-  <section id="hero" class="relative h-screen overflow-hidden flex items-center justify-center">
-    <img src="https://source.unsplash.com/1600x900/?camarines-norte,philippines" alt="Camarines Norte" class="absolute inset-0 w-full h-full object-cover filter brightness-70 transition-transform duration-20000 ease-in-out hover:scale-110">
+  <section id="hero" class="relative h-screen flex items-center justify-center">
+    <img loading="lazy" src="/images/bagasbas.webp" alt="Landscape" class="absolute inset-0 w-full h-full object-cover filter brightness-60 hover:scale-110 transition-transform duration-20000 ease-in-out">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60"></div>
     <div class="relative z-10 text-center px-4" data-aos="fade-in">
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4">Camarines Norte</h1>
-      <p class="text-lg md:text-2xl mb-8">A Virtual Journey Through Its 12 Towns</p>
-      <div class="animate-bounce">
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-alt mb-4">Camarines Norte</h1>
+      <p class="text-lg md:text-2xl text-text-secondary mb-8 max-w-xl mx-auto">A Virtual Journey Through Its 12 Towns</p>
+      <div class="animate-bounce text-alt">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
       </div>
     </div>
   </section>
-
-  <!-- Towns Showcase -->
-  <section id="towns" class="py-20">
+  <section id="towns" class="py-20 bg-main">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="section-title" data-aos="fade-up">The 12 Towns</h2>
       <div id="towns-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </div>
   </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-16 text-center">
+  <section id="about" class="py-16 bg-alt text-center">
     <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
       <h2 class="section-title mb-4">About This Showcase</h2>
-      <p class="section-text">
-        This digital brochure offers an immersive look at Camarines Norte’s diverse towns,
-        capturing landscapes, culture, and heritage. Dive in and explore each town’s unique story.
-      </p>
+      <p class="section-text">This digital brochure offers an immersive look at Camarines Norte’s diverse towns, capturing landscapes, culture, and heritage.</p>
     </div>
   </section>
-
-  <!-- Footer -->
-  <footer class="py-8 text-center">
-    <p class="text-sm">&copy; 2025 Virtual Brochure. All Rights Reserved.</p>
+  <button id="back-top" aria-label="Back to top" class="hidden fixed bottom-6 right-6 bg-accent text-alt p-3 rounded-full shadow-lg hover:bg-secondary">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+  <footer class="py-8 bg-main text-text-secondary text-center">
+    <p class="text-sm">&copy; 2025 Virtual Brochure</p>
   </footer>
-
-  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+:root {
+  --primary: #1e3a8a;
+  --secondary: #9333ea;
+  --accent: #10b981;
+  --bg-start: #eff6ff;
+  --bg-end: #e0f2fe;
+}
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0; padding: 0;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  color: var(--primary);
+}
+
+/* Navbar */
+nav { background: rgba(255,255,255,0.8); }
+.nav-link { color: var(--primary); font-weight: 600; transition: color 0.3s; }
+.nav-link:hover { color: var(--secondary); }
+
+/* Section Titles */
+.section-title { font-size: 2rem; font-weight: 800; color: var(--secondary); margin-bottom: 1rem; }
+.section-text { color: #374151; font-size: 1.125rem; }
+
+/* Town Card Styles */
+.town-card {
+  background: #ffffffcc;
+  border-left: 4px solid var(--accent);
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.town-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+.town-card img { width: 100%; height: 12rem; object-fit: cover; }
+.town-card .info { padding: 1rem; }
+.town-card .info h3 { color: var(--primary); margin-bottom: 0.5rem; }
+.town-card .info p { color: #4b5563; font-size: 0.875rem; }
+
+/* AOS overrides */
+[data-aos] { opacity: 0; }
+[data-aos].aos-animate { opacity: 1; transition: opacity 0.5s ease; }
